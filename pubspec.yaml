@@ -1,0 +1,48 @@
+name: taskline
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.6.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  go_router: ^14.7.2 # routing
+  flutter_svg: ^2.0.17 # for svg images
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icons/
+  fonts:
+    - family: Nunito
+      fonts:
+        - asset: assets/fonts/Nunito.ttf
+    - family: Raleway-SemiBold
+      fonts:
+        - asset: assets/fonts/Raleway-SemiBold.ttf
+    - family: Raleway-Bold
+      fonts:
+        - asset: assets/fonts/Raleway-Bold.ttf
+    - family: Raleway-ExtraBold
+      fonts:
+        - asset: assets/fonts/Raleway-ExtraBold.ttf
+    - family: Raleway-Black
+      fonts:
+        - asset: assets/fonts/Raleway-Black.ttf
+    - family: Raleway-Light
+      fonts:
+        - asset: assets/fonts/Raleway-Light.ttf
+    - family: Raleway-Medium
+      fonts:
+        - asset: assets/fonts/Raleway-Medium.ttf
+    - family: Raleway-Regular
+      fonts:
+        - asset: assets/fonts/Raleway-Regular.ttf
