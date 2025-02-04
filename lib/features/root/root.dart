@@ -14,19 +14,37 @@ class RootScreen extends StatelessWidget {
         body: navigationShell,
         bottomNavigationBar: NavigationBar(
             labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
-            height: 70,
+            height: 50,
+            indicatorColor: Colors.transparent,
             selectedIndex: navigationShell.currentIndex,
             onDestinationSelected: (index) {
               navigationShell.goBranch(index);
             },
             destinations: [
-              NavigationDestination(icon: Icon(LineIcons.home), label: "Home"),
               NavigationDestination(
-                  icon: Icon(LineIcons.search), label: "Search"),
+                  icon: Icon(
+                    LineIcons.home,
+                    size: 30,
+                  ),
+                  label: "Home"),
               NavigationDestination(
-                  icon: Icon(LineIcons.facebookMessenger), label: "Message"),
+                  icon: Icon(
+                    LineIcons.search,
+                    size: 30,
+                  ),
+                  label: "Search"),
               NavigationDestination(
-                  icon: Icon(LineIcons.user), label: "Profile"),
+                  icon: Icon(
+                    LineIcons.facebookMessenger,
+                    size: 30,
+                  ),
+                  label: "Message"),
+              NavigationDestination(
+                  icon: Icon(
+                    LineIcons.user,
+                    size: 30,
+                  ),
+                  label: "Profile"),
             ]));
   }
 }

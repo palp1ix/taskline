@@ -13,8 +13,9 @@ class AppIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
-      width: 45,
-      height: 45,
+      margin: EdgeInsets.all(5),
+      width: 50,
+      height: 50,
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
           border: Border.all(width: 1, color: Color(0xFFD1D1D1)),

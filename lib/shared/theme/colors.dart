@@ -9,5 +9,5 @@ class AppColors {
   static Color white = Color(0xFFFFFFFF);
   static Color background = Color(0xFFFAFAFA);
   static Color black = Color(0xFF000000);
-  static Color hintColor = Color(0xFFCCCCCC);
+  static Color hintColor = Color(0xFF797979);
 }
