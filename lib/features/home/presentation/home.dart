@@ -11,23 +11,27 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-        body: Center(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          AppButton(
-              child: Text(
-                'Продолжить',
-                style:
-                    TextStyle(color: theme.colorScheme.onPrimary, fontSize: 18),
-              ),
-              onPressed: () {}),
-          AppIconButton(
-              onPressed: () {},
-              child: SvgPicture.asset('assets/icons/close.svg')),
-          StepperIndicatorDemo()
-        ],
+        body: SafeArea(
+      child: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AppButton(
+                  child: Text(
+                    'Продолжить',
+                    style: TextStyle(
+                        color: theme.colorScheme.onPrimary, fontSize: 18),
+                  ),
+                  onPressed: () {}),
+              AppIconButton(
+                  onPressed: () {},
+                  child: SvgPicture.asset('assets/icons/close.svg')),
+              StepperIndicatorDemo(),
+            ],
+          ),
+        ),
       ),
     ));
   }
@@ -56,17 +60,12 @@ class _StepperIndicatorDemoState extends State<StepperIndicatorDemo> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
+      alignment: Alignment.center,
       children: [
-        // Наш кастомный индикатор
-        AppDividedStepper(
-          pageController: _pageController,
-          itemCount: images.length,
-        ),
-        SizedBox(height: 20),
-        // PageView для перелистывания картинок
         SizedBox(
           height: 300,
+          width: 350,
           child: PageView.builder(
             controller: _pageController,
             itemCount: images.length,
@@ -77,6 +76,13 @@ class _StepperIndicatorDemoState extends State<StepperIndicatorDemo> {
                 fit: BoxFit.cover,
               );
             },
+          ),
+        ),
+        Positioned(
+          bottom: 15,
+          child: AppDividedStepper(
+            pageController: _pageController,
+            itemCount: images.length,
           ),
         ),
       ],

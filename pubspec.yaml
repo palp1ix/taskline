@@ -11,6 +11,8 @@ dependencies:
     sdk: flutter
   go_router: ^14.7.2 # routing
   flutter_svg: ^2.0.17 # for svg images
+  google_nav_bar: ^5.0.7 # navigation bar
+  line_icons: ^2.0.3 # icon set
 
 dev_dependencies:
   flutter_test:

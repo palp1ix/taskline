@@ -5,6 +5,7 @@ import 'package:taskline/shared/theme/fonts.dart';
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
       fontFamily: AppFonts.ralewaySemiBold,
+      hintColor: AppColors.hintColor,
       colorScheme: ColorScheme(
           brightness: Brightness.light,
           primary: AppColors.accent,
