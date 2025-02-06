@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:taskline/shared/ui/icon_button.dart';
-import 'package:taskline/shared/ui/shared_appbar.dart';
+import 'package:taskline/features/home/presentation/widgets/home_appbar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -12,22 +10,14 @@ class HomePage extends StatelessWidget {
     return Scaffold(
         body: CustomScrollView(
       slivers: [
-        SharedAppBar(
-            title: 'Александр',
-            subtitle: 'Был в сети 5 минут назад',
-            leading: AppIconButton(
-                onPressed: () {},
-                child: SvgPicture.asset('assets/icons/dollar.svg')),
-            trailing: AppIconButton(
-                child: SvgPicture.asset('assets/icons/more.svg'),
-                onPressed: () {})),
+        HomeAppBar(),
         SliverList.builder(itemBuilder: (context, index) {
           return Container(
-            margin: EdgeInsets.all(20),
+            margin: EdgeInsets.all(15),
             width: 200,
-            height: 300,
+            height: 100,
             decoration: BoxDecoration(
-              color: Colors.pink,
+              color: Colors.deepPurple,
               borderRadius: BorderRadius.circular(20),
             ),
           );

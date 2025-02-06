@@ -2,6 +2,7 @@ import 'dart:ui';
 
 class AppColors {
   static Color accent = Color(0xFF9B54FF);
+  static Color darkAccent = Color(0xFF7C1EFF);
   static Color lightAccent = Color(0xFFEEDDFF);
   static Color green = Color(0xFF34C558);
   static Color red = Color(0xFFFF7676);
