@@ -14,4 +14,13 @@ class AppFonts {
   static const String nunitoMedium = 'Nunito-Medium';
   static const String nunitoRegular = 'Nunito-Regular';
   static const String nunitoSemiBold = 'Nunito-SemiBold';
+  static const String onyFormMedium = 'ONY-FORM-Medium';
+  static const String onyFormRegular = 'ONY-FORM-Regular';
+  static const String pofoBold = 'ALSPofo-Bold';
+  static const String pofoLight = 'ALSPofo-Light';
+  static const String pofoRegular = 'ALSPofo-Regular';
+
+  static const String primaryBold = AppFonts.pofoBold;
+  static const String primaryMedium = AppFonts.pofoRegular;
+  static const String primaryLight = AppFonts.pofoLight;
 }

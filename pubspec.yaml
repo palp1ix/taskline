@@ -1,6 +1,6 @@
 name: taskline
 description: "A new Flutter project."
-publish_to: 'none'
+publish_to: "none"
 version: 0.1.0
 
 environment:
@@ -11,8 +11,6 @@ dependencies:
     sdk: flutter
   go_router: ^14.7.2 # routing
   flutter_svg: ^2.0.17 # for svg images
-  google_nav_bar: ^5.0.7 # navigation bar
-  line_icons: ^2.0.3 # icon set
 
 dev_dependencies:
   flutter_test:
@@ -23,7 +21,23 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icons/
+    - assets/lottie/
   fonts:
+    - family: ALSPofo-Bold
+      fonts:
+        - asset: assets/fonts/ALSPofo-Bold.ttf
+    - family: ALSPofo-Regular
+      fonts:
+        - asset: assets/fonts/ALSPofo-Regular.ttf
+    - family: ALSPofo-Light
+      fonts:
+        - asset: assets/fonts/ALSPofo-Light.ttf
+    - family: ONY-FORM-Medium
+      fonts:
+        - asset: assets/fonts/ONY-FORM-Medium.ttf
+    - family: ONY-FORM-Regular
+      fonts:
+        - asset: assets/fonts/ONY-FORM-Regular.ttf
     - family: Raleway-SemiBold
       fonts:
         - asset: assets/fonts/Raleway-SemiBold.ttf
@@ -69,4 +83,3 @@ flutter:
     - family: Nunito-SemiBold
       fonts:
         - asset: assets/fonts/Nunito-SemiBold.ttf
-    - family: Nunito-VariableFont_wght
