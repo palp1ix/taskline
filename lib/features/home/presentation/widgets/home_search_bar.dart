@@ -10,9 +10,8 @@ class HomeSearchBar extends StatelessWidget {
     final theme = Theme.of(context);
     return Container(
       height: 59,
-      margin: EdgeInsets.symmetric(horizontal: 13),
       decoration: BoxDecoration(
-          color: theme.colorScheme.primaryContainer,
+          color: theme.colorScheme.surfaceContainer,
           borderRadius: BorderRadius.circular(20)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

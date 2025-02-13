@@ -9,7 +9,7 @@ class AppTheme {
     colorScheme: ColorScheme(
         brightness: Brightness.light,
         primary: AppColors.accent,
-        primaryContainer: AppColors.white,
+        surfaceContainer: AppColors.white,
         onPrimary: AppColors.white,
         secondary: AppColors.lightAccent,
         onSecondary: AppColors.accent,

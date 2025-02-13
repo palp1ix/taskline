@@ -4,11 +4,13 @@ class AppIconButton extends StatelessWidget {
   const AppIconButton({
     super.key,
     required this.child,
-    this.isBordered = true,
+    this.isBordered = false,
     required this.onPressed,
+    this.backgroundColor,
   });
   final Widget child;
   final bool isBordered;
+  final Color? backgroundColor;
   final void Function() onPressed;
 
   @override
@@ -21,10 +23,11 @@ class AppIconButton extends StatelessWidget {
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
           border: isBordered
-              ? Border.all(width: 1, color: Color(0xFFD1D1D1))
+              ? Border.all(
+                  width: 1, color: backgroundColor ?? Color(0xFFD1D1D1))
               : null,
           shape: BoxShape.circle,
-          color: theme.colorScheme.surface),
+          color: theme.colorScheme.surfaceContainer),
       child: Center(child: InkWell(onTap: onPressed, child: child)),
     );
   }
