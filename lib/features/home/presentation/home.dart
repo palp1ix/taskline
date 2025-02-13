@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:taskline/shared/ui/button.dart';
-import 'package:taskline/shared/ui/divided_stepper.dart';
-import 'package:taskline/shared/ui/icon_button.dart';
+import 'package:taskline/features/home/presentation/widgets/home_search_bar.dart';
+import 'package:taskline/features/home/presentation/widgets/top_home_bar.dart';
+import 'package:taskline/shared/theme/fonts.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -11,75 +10,46 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Scaffold(
-        body: Center(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          AppButton(
-              child: Text(
-                'Продолжить',
-                style:
-                    TextStyle(color: theme.colorScheme.onPrimary, fontSize: 18),
+        body: SafeArea(
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Container(
+              padding: const EdgeInsets.only(top: 15),
+              margin: EdgeInsets.symmetric(horizontal: 13),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 7),
+                    child: Column(
+                      children: [
+                        TopHomeBar(),
+                        SizedBox(height: 25),
+                        RichText(
+                          text: TextSpan(
+                              text: 'Ищи задания и подработки в ',
+                              style: TextStyle(
+                                  fontFamily: AppFonts.onyFormMedium,
+                                  fontSize: 30,
+                                  color: theme.colorScheme.onSurface),
+                              children: [
+                                TextSpan(
+                                    text: 'реальном времени!',
+                                    style: TextStyle(
+                                        color: theme.colorScheme.primary))
+                              ]),
+                        ),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  HomeSearchBar(),
+                ],
               ),
-              onPressed: () {}),
-          AppIconButton(
-              onPressed: () {},
-              child: SvgPicture.asset('assets/icons/close.svg')),
-          StepperIndicatorDemo()
+            ),
+          )
         ],
       ),
     ));
-  }
-}
-
-class StepperIndicatorDemo extends StatefulWidget {
-  const StepperIndicatorDemo({super.key});
-
-  @override
-  _StepperIndicatorDemoState createState() => _StepperIndicatorDemoState();
-}
-
-class _StepperIndicatorDemoState extends State<StepperIndicatorDemo> {
-  final PageController _pageController = PageController();
-  final List<String> images = [
-    'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*KGNmqdOKLH2_Uy7YYdnBHg.png',
-    'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*KGNmqdOKLH2_Uy7YYdnBHg.png',
-    'https://miro.medium.com/v2/resize:fit:1400/format:webp/1*KGNmqdOKLH2_Uy7YYdnBHg.png',
-  ];
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        // Наш кастомный индикатор
-        AppDividedStepper(
-          pageController: _pageController,
-          itemCount: images.length,
-        ),
-        SizedBox(height: 20),
-        // PageView для перелистывания картинок
-        SizedBox(
-          height: 300,
-          child: PageView.builder(
-            controller: _pageController,
-            itemCount: images.length,
-            itemBuilder: (context, index) {
-              return Image.network(
-                height: 300,
-                images[index],
-                fit: BoxFit.cover,
-              );
-            },
-          ),
-        ),
-      ],
-    );
   }
 }

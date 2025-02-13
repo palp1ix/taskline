@@ -10,7 +10,7 @@ class AppDividedStepper extends StatefulWidget {
     super.key,
     required this.pageController,
     required this.itemCount,
-    this.indicatorHeight = 4.0,
+    this.indicatorHeight = 3.0,
     this.duration = const Duration(seconds: 5),
   });
 
@@ -33,7 +33,7 @@ class _AppDividedStepperState extends State<AppDividedStepper>
       duration: widget.duration,
     );
 
-    // Создаем анимацию для прогресса
+    // Animation for progress bar
     _progressAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
         parent: _animationController,
@@ -41,9 +41,8 @@ class _AppDividedStepperState extends State<AppDividedStepper>
       ),
     );
 
-    // Добавляем слушатель для обновления состояния
     _animationController.addListener(() {
-      setState(() {}); // Перестраиваем виджет при каждом изменении анимации
+      setState(() {}); // Rebuild screen after updating
     });
 
     widget.pageController.addListener(_updatePage);
@@ -61,11 +60,12 @@ class _AppDividedStepperState extends State<AppDividedStepper>
   void _updatePage() {
     if (!mounted || !widget.pageController.hasClients) return;
 
+    int previosPage = _currentPage;
     setState(() {
       _currentPage = widget.pageController.page?.round() ?? 0;
     });
 
-    _startAutoProgress(); // Перезапуск анимации при смене страницы
+    if (previosPage != _currentPage) _startAutoProgress();
   }
 
   void _startAutoProgress() {
@@ -113,11 +113,10 @@ class _AppDividedStepperState extends State<AppDividedStepper>
           child: Container(
             height: widget.indicatorHeight,
             width: 40,
-            margin: EdgeInsets.symmetric(horizontal: 2),
+            margin: EdgeInsets.symmetric(horizontal: 4),
             decoration: BoxDecoration(
-              color:
-                  _currentPage == index ? theme.primaryColor : theme.hintColor,
-              borderRadius: BorderRadius.circular(2),
+              color: theme.colorScheme.surface,
+              borderRadius: BorderRadius.circular(5),
             ),
             child: _currentPage == index
                 ? LinearProgressIndicator(
@@ -127,7 +126,7 @@ class _AppDividedStepperState extends State<AppDividedStepper>
                       theme.colorScheme.primary,
                     ),
                   )
-                : SizedBox(),
+                : SizedBox.shrink(),
           ),
         );
       }),

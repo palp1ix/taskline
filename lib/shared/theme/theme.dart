@@ -4,16 +4,18 @@ import 'package:taskline/shared/theme/fonts.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
-      fontFamily: AppFonts.ralewaySemiBold,
-      colorScheme: ColorScheme(
-          brightness: Brightness.light,
-          primary: AppColors.accent,
-          onPrimary: AppColors.white,
-          secondary: AppColors.lightAccent,
-          onSecondary: AppColors.accent,
-          error: AppColors.red,
-          onError: AppColors.white,
-          surface: AppColors.white,
-          onSurface: AppColors.black),
-      useMaterial3: true);
+    fontFamily: AppFonts.pofoRegular,
+    hintColor: AppColors.hintColor,
+    colorScheme: ColorScheme(
+        brightness: Brightness.light,
+        primary: AppColors.accent,
+        surfaceContainer: AppColors.white,
+        onPrimary: AppColors.white,
+        secondary: AppColors.lightAccent,
+        onSecondary: AppColors.accent,
+        error: AppColors.red,
+        onError: AppColors.white,
+        surface: AppColors.background,
+        onSurface: AppColors.black),
+  );
 }
